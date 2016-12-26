@@ -1,0 +1,14 @@
+@mixin flexku($arah,$ai,$jc){
+	display: flex;
+	-webkit-flex-direction: $arah;
+	    -ms-flex-direction: $arah;
+	        flex-direction: $arah;
+	-webkit-justify-content: $jc;
+	        justify-content: $jc;
+	-webkit-align-items: $ai;
+	        align-items: $ai;
+}
+
+@mixin resto($lebar){
+	@media screen and (max-width : $lebar) { @content; }
+}

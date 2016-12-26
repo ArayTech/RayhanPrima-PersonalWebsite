@@ -1,0 +1,213 @@
+header{
+	width: 100%;
+	position: relative;
+	top: 0;
+	&#header-beranda{
+		height:690px;
+		overflow:hidden;
+		position: relative;
+		.background{
+			position: absolute;
+			top: 0;
+			z-index: -2;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background:$warna-1;
+			&:before{
+				position: absolute;
+				content:"";
+				background:white;
+				top: 0;
+				left: 0;
+				width: 50%;
+				height: 100%;
+				@include transition(all 200ms ease);
+				@include resto(920px){ width:0; }
+			}
+		}
+		.frontground{
+			width: 100%;
+			height: 100%;
+			position: relative;
+			.kiri{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				img{
+					&.satu{
+						width:890px;
+						max-width: 100%;
+						@include transform(translateY(90px));
+						@include resto(1200px){ width:850px; } 
+						@include resto(1100px){ width:830px; } 
+					}
+					&.dua{
+						width:480px;
+						display:none;
+						opacity:0.4;
+					}
+				}
+				@include resto(920px){
+					left: 50%;
+					@include transform(translate(-20%,105px));
+					img{
+						&.satu{
+							display:none;
+						}
+						&.dua{
+						    display:block;
+					    }
+					}
+				}
+				@include resto(768px){ top:40%; @include transform(translate(-50%,-50%)); }
+			}
+			.kanan{
+				font-family:$font-2;
+				position: absolute;
+				left: 50%;
+				top:0;
+				width: 50%;
+				margin-top:80px;
+				@include flexku(row,center,center);
+				.kanan-dalam{
+					@include transform(translateY(-20px));
+					@include resto(768px){ @include transform(translateY(-10px)); }
+					h1{
+						color:white;
+						font-weight:bold;
+						font-size:5em;
+						position: relative;
+						display:inline-block;
+						padding:10px 0;
+						margin-top:70px;
+						text-shadow:3px 4px 0px darken($warna-1,10%);
+						&:before,&:after{
+							position: absolute;
+							bottom: 0;
+							height:5px;
+							background:white;
+							content:"";
+						}
+						@include resto(1100px){ font-size:4.7em; }
+						@include resto(920px){ margin-top:60px; display:block; }
+						@include resto(768px){ font-size:4.5em; }
+						@include resto(660px){ text-align:center; font-size:3.8em; }
+					}
+					p{
+					    font-size: 2.3em;
+					    color: white;
+					    display: inline-block;
+					    font-weight: bold;
+					    line-height: 45px;
+					    @include resto(1100px){ font-size:2em;line-height:35px; }
+					    @include resto(920px){ width:90%; line-height:45px; display:block; }
+					    @include resto(768px){ font-size:2em; line-height:40px; }
+					    @include resto(660px){ text-align:center; font-size:1.5em; line-height:35px; }
+					}
+					form{
+						margin:20px 0;
+						width:100%;
+						@include flexku(row,center,flex-start);
+						.wrapper{
+							width:85%;
+							position: relative;
+							@include flexku(row,center,center);
+							input[type="search"]{
+								background: white;
+							    border-radius: 3px;
+							    border: 4px solid white;
+							    border-bottom: 2px solid white;
+							    outline: 0;
+							    width: 100%;
+							    font-size: 1.5em;
+							    color: #3b9297;
+							    padding: 10px;
+								@include transition(all 200ms ease);
+								@include placeholder { color:transparentize($warna-1,0.4); }
+								&:focus{
+									padding:12px 10px;
+									border-bottom:4px solid white;
+								}
+								@include resto(660px){ font-size:1.3em; border-size:3.5px; padding:5px; font-size:1.3em; }
+							}
+							button{
+								position: absolute;
+							    top: 50%;
+							    right: 0;
+							    background: transparent;
+							    border: 0.5px solid white;
+							    padding:12px;
+							    height:100%;
+							    transform: translateY(-50%);
+								background:$warna-1;
+								i{
+									color:white;
+									font-size:2em;
+									@include resto(768px){ font-size:1.3em; }
+								}
+							}
+							@include resto(1200px){ width:90%; }
+							@include resto(1100px){ width:95%; }
+						}
+						@include resto(920px){ margin:40px 0; }
+						@include resto(768px){ margin:20px 0 0 0; }
+					}
+					.header-button{
+						margin-top:45px;
+						width:100%;
+						@include flexku(row,center,center);
+						a{
+							display:inline-block;
+							padding:10px 20px;
+							border:2px solid white;
+							margin:0 20px 0 0;
+							font-family:$font-1;
+							font-size:1.3em;
+							width:120px;
+							text-align: center;
+							position: relative;
+							overflow: hidden;
+							@include transition(all 250ms ease);
+							&:before,&:after{
+								left: 0;
+								top: 0;
+								position: absolute;
+								content:"";
+								height: 100%;
+								width: 0%;
+								@include transition(all 100ms ease);
+							}
+							&:before{ z-index: -2; }
+							&:after{ z-index: -1; }
+							&:first-child{
+								color:white;
+							}
+							&:last-child{
+								color:$warna-1;
+								background:white;
+							}
+							&:hover{
+								&:first-child{ background:white; color:$warna-1; }
+								&:last-child{ 
+									background:darken($warna-1,10%);
+									color:white;
+									border-color:darken($warna-1,10%);;
+								}
+							}
+							@include resto(920px){ width:200px; }
+							@include resto(768px){ width:150px; font-size:1.2em; padding:12px 18px; }
+							@include resto(660px){ font-size:1em; }
+						}
+						@include resto(920px){ @include flexku(row,center,flex-start); }
+						@include resto(768px){ margin-top:40px; }
+						@include resto(660px){ @include flexku(row,center,center); margin-top:30px; }
+					}
+				}
+				@include resto(920px){ width:100%; left:0; height:100%; margin:0; }
+			}
+		}
+		@include resto(920px){ height:630px; }
+		@include resto(768px){ height:100vh; }
+	}	
+}
